@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% for i in instrument %}
+    <div class="details">
+      <div class="details__header">
+        <div class="details__image_wrapper">
+          <img class="details__image" src='{{i.picture}}' height=60 width=60/>
+        </div>
+        {% if i.credit %}
+            <span>{{i.credit[:10]}}</span>
+        {% endif %}
+      </div>
+      <div class="details__description">
+        <h2>{{i.name}}</h2>
+        <br>
+        <p>{{i.description}}</p>
+        <br>
+        <span><strong>added by</strong></span><p>{{i.user_name}}</p>
+      </div>
+    </div>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="form">
+  <form class="form__addinstrument" action="{{ url_for('add_new_instrument') }}" method="POST">
+    <label for="name"><strong>Instrument name:</strong></label>
+    <br>
+    <input type="text" maxlength="50" name="name" placeholder="Name of the instrument" required>
+    <br>
+    <label for="region"><strong>Region:</strong></label>
+    <br>
+    <select id="region" name="region" required>
+      <option value="Africa">Africa</option>
+      <option value="Asia">Asia</option>
+      <option value="Europe">Europe</option>
+      <option value="North America">North America</option>
+      <option value="South America">South America</option>
+      <option value="Oceania">Oceania</option>
+    </select>
+    <br>
+    <br>
+    <label for="description"><strong>Description:</strong></label>
+    <br>
+    <textarea style="height: 200px;" name="description" placeholder="Description of the instrument" required></textarea>
+    <br/>
+    <br>
+    <label for="picture"><strong>Picture URL (including http://):</strong></label>
+    <br>
+    <textarea name="picture" placeholder="Paste the complete URL"></textarea>
+    <br/>
+    <label for="name"><strong>Credit:</strong></label>
+    <input type ="text" maxlength="50" name="credit" placeholder="Where did you get this info?">
+    <br>
+    <div>
+      <input class="form__cancel" type="button" name="cancel" value="cancel" onClick="window.location='/';"/>
+      <button class="form__submit" type="submit" id="submit" value="submit">Add</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

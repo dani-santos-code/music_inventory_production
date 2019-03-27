@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet"
+		href="{{ url_for('static', filename='css/styles.css')|autoversion }}"
+    type="text/css" media="screen"
+    charset="utf-8"/>
+		<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:700" rel="stylesheet">
+		<title>Exotic Music Instruments</title>
+	</head>
+	<body>
+		<div class="navbar">
+			<a href="/"><div class="navbar__logo"><img class="logo" src="/static/images/logo.svg" alt="logo"></div></a>
+			{% if user %}
+			<div class="navbar__logged">
+				<a href="/dashboard"><div><img class="avatar__img" src='{{user.picture}}' alt="profile picture"/></div></a>
+				{% if user.name|length > 10 %}
+					<div class="avatar">{{user.name[:9]}}</div>
+				{% else %}
+					<div class="avatar">{{user.name}}</div>
+				{% endif %}
+				<div class="avatar__separator">|</diV>
+					<a href="/logout">
+							<div class="navbar__logout">Logout</div>
+					</a>
+			</div>
+			{% else %}
+				<a href="/login">
+					<div class="navbar__login">Login</div>
+				</a>
+		 {% endif %}
+  	</div>
+		<div class="background">
+			<h1>{{title}}</h1>
+			<a href="https://www.freepik.com/free-photos-vectors/music"
+               target="_blank"
+               rel="noopener noreferrer">
+                Music vector created by freepik - www.freepik.com
+            </a>
+		</div>
+		  {% with messages = get_flashed_messages() %}
+				<div>
+		    {% if messages %}
+		    {%for message in messages%}
+		        <div class="flash"> {{ message }}!</div>
+		    {%endfor%}
+		    {% endif %}
+				</div>
+		  {% endwith %}
+		<main class="container">
+				{% block content %}
+				{% endblock %}
+		</main>
+	</body>
+</html>

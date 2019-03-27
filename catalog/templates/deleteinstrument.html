@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h2> Are you sure you want to delete {{instrument.name}}? </h2>
+
+<form action="#" method = 'post'>
+	<a href = '{{url_for('show_regions')}}'>
+		<input style="border-color: gray; color: gray;" class="form__cancel" type="button" name="cancel" value="cancel" onClick="window.location='/';"/>
+	</a>
+	<button class="edit__delete" id="submit" type="submit">
+	Delete</button>
+
+</form>
+
+{% endblock %}

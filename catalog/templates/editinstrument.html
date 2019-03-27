@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="form">
+  <form class="form__addinstrument" action="#" method="POST">
+    <label for="name"><strong>Instrument name:</strong></label>
+    <br>
+    <input type="text"
+					 maxlength="50"
+					 name="name"
+                     id="name"
+					 value="{{instrument.name}}" required>
+    <br>
+    <label for="region"><strong>Region:</strong></label>
+    <br>
+		{% with region = instrument.region.name %}
+	    <select id="region" name="region">
+				{% if region == "Africa"%}
+	      	<option value="Africa" selected>Africa</option>
+				{% else %}
+					<option value="Africa">Africa</option>
+				{% endif %}
+				{% if region == "Asia"%}
+	      	<option value="Asia" selected>Asia</option>
+				{% else %}
+					<option value="Asia">Asia</option>
+				{% endif %}
+
+				{% if region == "Europe" %}
+	      	<option value="Europe" selected>Europe</option>
+				{% else %}
+					<option value="Europe">Europe</option>
+				{% endif %}
+
+				{% if region == "North America" %}
+	      	<option value="North America" selected>North America</option>
+				{% else %}
+					<option value="North America">North America</option>
+				{% endif %}
+
+				{% if region == "South America" %}
+	      	<option value="South America" selected>South America</option>
+				{% else %}
+					<option value="South America">South America</option>
+				{% endif %}
+
+				{% if region == "Oceania" %}
+	      	<option value="Oceania" selected>Oceania</option>
+				{% else %}
+					<option value="Oceania">Oceania</option>
+				{% endif %}
+	    </select>
+		{% endwith %}
+    <br>
+    <br>
+    <label for="description"><strong>Description:</strong></label>
+    <br>
+    <textarea style="height: 200px;"
+              name="description"
+              id="description"
+              required>{{instrument.description}}</textarea>
+    <br/>
+    <br>
+    <label for="picture"><strong>Picture URL (including http://):</strong></label>
+    <br>
+    <textarea name="picture"
+              id="picture">{{instrument.picture}}</textarea>
+    <br/>
+    <label for="credit"><strong>Credit:</strong></label>
+    <br>
+    <input type ="text" maxlength="50" id="credit" name="credit" value="{{instrument.credit}}">
+    <br>
+    <div>
+      <input class="form__cancel" type="button" name="cancel" value="cancel" onClick="window.location='/';"/>
+      <button class="form__submit" type="submit" id="submit" value="submit">Save</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

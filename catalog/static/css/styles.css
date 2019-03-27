@@ -1,0 +1,531 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+h1 {
+  margin-top: 1em;
+}
+
+a, u {
+  text-decoration: none;
+}
+
+a:visited, a:hover, a:active, a:link {
+  color: black;
+}
+
+input, textarea, select{
+  width: 100%;
+  height: 30px;
+  font-size: 13px;
+}
+
+/* =================
+      HEADER
+================== */
+
+.navbar {
+  margin: 0 auto;
+  max-width: 100%;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  background-color: #24628e;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar__logo {
+  align-self: flex-start;
+  width: 126px;
+  z-index: 1;
+}
+
+
+.navbar__login {
+  background-color: #1c304a;
+  align-self: flex-end;
+  height: 60px;
+  width: 114px;
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #13ffe2;
+}
+
+.navbar__logged {
+  background-color: #1c304a;
+  display: flex;
+  height: 60px;
+  width: 300px;
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #13ffe2;
+}
+
+.navbar__logout {
+  align-self: flex-end;
+  color: #13ffe2;
+  font-size: 15px;
+}
+
+.avatar {
+  background-color: #1c304a;
+  align-self: flex-start;
+  height: 60px;
+  width: 114px;
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #13ffe2;
+}
+
+.avatar__img {
+  width: 40px;
+  height: 40px;
+  border: solid 1px #13ffe2;
+  border-radius: 50%;
+  margin: 10px;
+}
+
+.avatar__separator {
+  color: #ffffff;
+  align-self: flex-end;
+  margin: 0 10px 0 10px;
+}
+
+
+.background {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-image: url("bg-image.jpeg");
+  background-repeat: repeat;
+  width: 100%;
+  height: 126px;
+  text-align: center;
+  color: black;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+.background a {
+  font-size: 8px;
+  margin: 10px;
+  align-self: flex-end;
+
+}
+
+
+/* ===================================
+      DASHBOARD
+====================================== */
+
+
+.table {
+  width: 70%;
+  margin: 60px auto;
+  border-radius: 5px;
+  box-shadow: 0 7px 13px -6px rgba(36, 98, 142, 0.23);
+  background-color: #ffffff;
+}
+
+.table__title {
+  display: flex;
+  margin: 10px;
+  justify-content: space-between;
+  height: 24px;
+  border: solid 1px #e9edf5;
+  background-color: #fafafc;
+}
+
+.table__img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: solid 2px #85f5ee;
+}
+
+.edit {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+.edit__edit {
+  width: 63px;
+  height: 19px;
+  border-radius: 3px;
+  margin-right: 10px;
+  border: solid 1px #24628e;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 16px;
+}
+
+.edit__delete {
+  width: 76px;
+  height: 19px;
+  border-radius: 3px;
+  border: solid 1px #d0021b;
+  text-align: center;
+  text-transform: uppercase;
+  color: #d0021b;
+  line-height: 16px;
+  cursor: pointer;
+}
+
+
+.ctacreate {
+  box-shadow: 1px 2px 2px 3px rgba(30,186,149);
+  border-radius: 5px;
+  background-color: rgba(30,186,149, 0.1);
+  font-weight: bold;
+  margin: 40px auto;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.instrument {
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: solid 1px #f1f1f3;
+}
+
+.instrument__info {
+  display: flex;
+  padding-bottom: 7px;
+}
+
+.instrument__name {
+  padding: 10px;
+}
+
+/* ===================================
+      INSTRUMENTS PER REGION
+====================================== */
+
+.instrument__img {
+  width: 91px;
+  height: 91px;
+  border-radius: 50%;
+  z-index: 1;
+  margin-bottom: -21px;
+  border: solid 5px #85f5ee;
+  background-color: #ffffff;
+  object-fit: cover;
+}
+
+.instrument__wrapper {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  background-color: #ffffff;
+}
+
+.instrument__description {
+  line-height: 20px;
+  margin-top: 60px;
+}
+
+.userpref a:visited, a:hover, a:active, a:link {
+  color: #076153;
+}
+
+/* ===============================
+          GRIDS
+   =============================== */
+
+.container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px 20px;
+}
+
+.grid__region {
+  margin-top: 60px;
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+  grid-gap: 30px;
+  margin-bottom: 60px;
+}
+
+.grid__instruments {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+  grid-gap: 30px;
+  margin-bottom: 60px;
+}
+
+/* ===============================
+          BASE LAYOUT
+   =============================== */
+
+.grid_item {
+  /* margin-left: 10%; */
+  width: 100%;
+}
+
+.instruments__region {
+  margin-top: 30px;
+  width: 433px;
+  text-align: right;
+}
+
+.instruments__header {
+  display: flex;
+}
+
+.instrumentcard {
+  width: 600px;
+  margin: 0 auto;
+}
+
+.flash {
+  width: 100%;
+  margin: 20px auto;
+  text-align: center;
+}
+
+/* ===============================
+          DETAILS PAGE
+   =============================== */
+
+.details {
+  display: flex;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.details__header {
+  display: flex;
+  flex-direction: column;
+  background-color: #85f5ee;
+  width: 216px;
+  height: 175px;
+  text-align: center;
+}
+
+.details__description {
+  width: 50%;
+  margin-left: 60px;
+}
+
+.details__image_wrapper {
+  background-color: white;
+  width: 90%;
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+}
+
+.details__image {
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
+}
+
+
+/* ===============================
+          FORMS
+   =============================== */
+
+.form {
+  margin-top: 27px;
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0 7px 13px -6px rgba(36, 98, 142, 0.23);
+  border: 1px solid rgba(36, 98, 142, 0.23);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.form__addinstrument {
+  margin: 71px auto;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-grow: 0.4;
+}
+
+.form__submit {
+  width: 80px;
+  color: #24628e;
+  height: 19px;
+  font-weight: bold;
+  border-radius: 3px;
+  margin: 0 auto;
+  border: solid 1px #24628e;
+  text-transform: uppercase;
+  line-height: 16px;
+  cursor: pointer;
+}
+
+.form__cancel {
+  color: #d0021b;
+  width: 80px;
+  height: 19px;
+  border-radius: 3px;
+  border: solid 1px #d0021b;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/* ===============================
+          ALL REGIONS PAGE
+   =============================== */
+
+.region {
+  width: 100%;
+  height: 273px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 73px;
+  border: 1px solid rgba(232, 235, 233);
+  border-radius: 5px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.1);
+  transition: all .1s linear;
+  display: flex;
+  flex-direction: column;
+}
+
+.region__name {
+  order: 1;
+  align-self: center;
+}
+
+.region__img {
+  order: 2;
+  align-self: center;
+  width: 145px;
+  height: 128px;
+}
+
+.moreinfo {
+  height: 36px;
+  width: 145px;
+  align-self: center;
+  margin-top: 1em;
+  border-radius: 3px;
+  border: solid 1px #24628e;
+  order: 3;
+}
+
+.moreinfo__text {
+  line-height: 32px;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #1c304a;
+}
+
+/* ===============================
+          MEDIA QUERIES
+   =============================== */
+
+/* Breakpoints for Ipad */
+@media (max-width: 1024px) {
+  .moreinfo {
+    width: 125px;
+  }
+}
+
+/* Breakpoints for Medium Screens */
+@media (max-width: 950px) {
+  .grid__region {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .grid__instruments {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .region {
+    width: 100%;
+    height: 270px;
+  }
+
+}
+
+/* Breakpoints for Small Screens */
+
+@media (max-width: 430px) {
+
+  .grid__region {
+    grid-template-columns: 1fr;
+  }
+
+  .grid__instruments {
+    grid-template-columns: 1fr;
+  }
+
+  .edit {
+    justify-content: flex-end;
+  }
+
+  .details {
+    flex-direction: column;
+  }
+
+  .details__header {
+    align-self: center;
+   }
+
+  .details__description {
+    padding-top: 20px;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .details__description h2 {
+    text-align: center;
+  }
+
+}
+
+@media (max-width: 775px) {
+
+  .logo {
+    height: 90px;
+    width: 105px;
+  }
+
+  .background {
+    font-size: 12px;
+    height: 68px;
+  }
+
+  .background a {
+    font-size: 8px;
+    padding: 17px;
+    margin: 0 auto;
+
+  }
+
+  .grid__item {
+    margin-left: 0;
+  }
+
+  .navbar {
+    margin: 0;
+    width: 100%;
+    height: 60px;
+  }
+
+  .navbar__login {
+    height: 60px;
+  }
+
+}

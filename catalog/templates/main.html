@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="grid__region">
+{% for region in regions %}
+    <div class="grid__item">
+        <a href='{{region.name.replace(" ", "_").lower()}}'>
+          <div class="region">
+              <h3 class="region__name">{{region.name}}</h3>
+              {% with formatted_name = region.name.replace(" ", "_").lower() %}
+              <img class="region__img" src="/static/images/{{formatted_name}}.svg" alt="region image"/>
+              {% endwith %}
+              <div class="moreinfo"><p class="moreinfo__text">See More</p></div>
+          </div>
+        </a>
+    </div>
+{% endfor %}
+</div>
+{% endblock %}
