@@ -152,7 +152,7 @@ def show_dashboard():
         user_info = get_user_info()
         title = "My Instruments"
         instruments = session.query(Instrument).\
-            filter_by(user_id=int(user_info["id"]))
+            filter_by(user_id=(user_info["id"]))
         return render_template('dashboard.html',
                                user=user_info,
                                instruments=instruments,
@@ -404,11 +404,10 @@ def add_new_instrument():
         user = get_user_info()
     if request.method == 'POST':
         user_info = get_user_info()
-        user_id = user_info["id"]
         user_name = user_info["name"]
         region = session.query(Region).\
             filter_by(name=request.form['region']).one()
-        new_instrument = Instrument(user_id=int(user_id), user_name=user_name,
+        new_instrument = Instrument(user_id=int(user_info["id"]), user_name=user_name,
                                     name=request.form['name'],
                                     description=request.form['description'],
                                     picture=request.form['picture'],
@@ -432,7 +431,7 @@ def edit_instrument(instrument_id):
         current_user = get_user_info()
         edited_instrument = session.\
             query(Instrument).filter_by(id=instrument_id).one()
-        if float(current_user['id']) == float(edited_instrument.user_id):
+        if current_user['id'] == edited_instrument.user_id:
             if request.method == 'POST':
                 if request.form['name']:
                     edited_instrument.name = request.form['name']
@@ -477,7 +476,7 @@ def delete_instrument(instrument_id):
         current_user = get_user_info()
         instrument_to_delete = session.\
             query(Instrument).filter_by(id=instrument_id).one()
-        if float(current_user['id']) == float(instrument_to_delete.user_id):
+        if current_user['id'] == instrument_to_delete.user_id:
             if request.method == 'POST':
                 print("POSTING")
                 session.delete(instrument_to_delete)

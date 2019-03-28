@@ -2,7 +2,7 @@ from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from sqlalchemy import create_engine
-
+from sqlalchemy.dialects.postgresql import VARCHAR
 Base = declarative_base()
 
 
@@ -31,7 +31,7 @@ class Instrument(Base):
     picture = Column(String(250), nullable=False)
     region_id = Column(Integer, ForeignKey('region.id'))
     region = relationship(Region)
-    user_id = Column(Integer)
+    user_id = Column(VARCHAR(255))
     user_name = Column(String(250))
 
     @property
